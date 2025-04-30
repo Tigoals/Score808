@@ -1,69 +1,41 @@
 const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQi8xg0A9SKnffOrEp7CGY3QZGbrBUSn1qpxZZQvTstd7CpnSR_EjVK6LruqBNGWfPKaNOBZVV4CJ37/pub?gid=0&single=true&output=csv';
 
 function parseCSV(text) {
-  const rows = text.trim().split('\n').map(row => row.split(','));
-  const headers = rows.shift().map(h => h.trim());
-  return rows.map(row => {
-    let obj = {};
-    row.forEach((value, index) => {
-      obj[headers[index]] = value.trim();
-    });
-    return obj;
+  const [headerLine, ...lines] = text.trim().split('\n');
+  const headers = headerLine.split(',').map(h => h.trim());
+  return lines.map(line => {
+    const values = line.split(',');
+    return headers.reduce((obj, key, i) => {
+      obj[key] = values[i]?.trim() || '';
+      return obj;
+    }, {});
   });
-}
-
-function formatDate(date) {
-  return date.toISOString().split('T')[0];
 }
 
 function normalizeTime(jam) {
-  const parts = jam.split(':');
-  const hour = parts[0].padStart(2, '0');
-  const minute = parts[1] ? parts[1].padStart(2, '0') : '00';
-  return `${hour}:${minute}`;
+  const [h = '00', m = '00'] = jam.split(':');
+  return `${h.padStart(2, '0')}:${m.padStart(2, '0')}`;
 }
 
-function getHeaderTanggal(dateObj) {
-  const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-  const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-  const dayName = days[dateObj.getDay()];
-  const day = dateObj.getDate();
-  const monthName = months[dateObj.getMonth()];
-  return `${dayName}, ${day} ${monthName}`;
+function formatTanggalIndonesia(tglStr) {
+  const hari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+  const bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+  const dateObj = new Date(tglStr);
+  return `${hari[dateObj.getDay()]}, ${dateObj.getDate()} ${bulan[dateObj.getMonth()]}`;
 }
 
-function generateSectionHTML(data, tanggal, label) {
-  const now = new Date();
-  const upcoming = [];
-
-  data.forEach(item => {
-    if (item.tanggal === tanggal) {
-      const time = normalizeTime(item.jam);
-      const matchTime = new Date(`${item.tanggal}T${time}:00`);
-      const matchEnd = new Date(matchTime.getTime() + 3 * 60 * 60 * 1000);
-      if (matchEnd > now) {
-        upcoming.push({ ...item, matchTime });
-      }
-    }
-  });
-
-  // Urutkan berdasarkan waktu terdekat
-  upcoming.sort((a, b) => a.matchTime - b.matchTime);
-
-  if (upcoming.length === 0) return '';
-
-  let html = `
-    <div class="match-date-header">${label}</div>
-    <div class="match-section">`;
-
-  upcoming.forEach(item => {
+function renderMatchList(title, matchList) {
+  if (!matchList.length) return '';
+  let html = `<div class="match-date-header">${title}</div><div class="match-section">`;
+  matchList.forEach(item => {
     const time = normalizeTime(item.jam);
+    const tanggalFormatted = formatTanggalIndonesia(item.tanggal);
     html += `
       <a href="https://score808pages.github.io/play.html?url+https://player.rosieworld.net/detail.html?v=1745381716708&mid=${item.linkStreaming}&type=1&pid=3&isTips=1&isLogin=0&sbtcolor=27c5c3&pfont=65px&host=dszb3.com&isStandalone=true" class="match-card" rel="noopener" target="_blank">
         <div class="match-league">🏆 <strong>${item.liga}</strong></div>
         <div class="match-info">
           <div class="match-left">
-            <div class="match-time">${time} WIB</div>
+            <div class="match-time">${tanggalFormatted} - ${time} WIB</div>
             <div class="match-team">${item.MatchTim}</div>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" class="play-icon" viewBox="0 0 24 24">
@@ -72,30 +44,70 @@ function generateSectionHTML(data, tanggal, label) {
         </div>
       </a>`;
   });
-
   html += '</div>';
   return html;
 }
 
-fetch(csvUrl)
-  .then(response => response.text())
-  .then(csv => {
-    const data = parseCSV(csv);
+function loadMatchSchedule() {
+  fetch(csvUrl)
+    .then(response => response.text())
+    .then(csv => {
+      const data = parseCSV(csv);
+      const now = new Date();
+      const formatDate = d => d.toISOString().split('T')[0];
 
-    const today = new Date(); // Senin, 28 April 2025
-    const besok = new Date(today);
-    besok.setDate(today.getDate() + 1); // Selasa, 29 April 2025
+      const today = new Date();
+      const tomorrow = new Date(today.getTime() + 86400000);
+      const lusa = new Date(today.getTime() + 2 * 86400000);
 
-    const todayStr = formatDate(today);
-    const besokStr = formatDate(besok);
+      const todayStr = formatDate(today);
+      const tomorrowStr = formatDate(tomorrow);
+      const lusaStr = formatDate(lusa);
 
-    const contentToday = generateSectionHTML(data, todayStr, `Next Match - ${getHeaderTanggal(today)}`);
-    const contentBesok = generateSectionHTML(data, besokStr, `Next Match - ${getHeaderTanggal(besok)}`);
+      const allMatches = data
+        .filter(d => [todayStr, tomorrowStr, lusaStr].includes(d.tanggal))
+        .map(item => {
+          const jam = normalizeTime(item.jam);
+          const matchTime = new Date(`${item.tanggal}T${jam}:00`);
+          return { ...item, matchTime };
+        });
 
-    const final = contentToday + contentBesok || `<div style="text-align:center;padding:20px;">Tidak ada pertandingan tersedia.</div>`;
+      const todayUpcoming = [];
+      const todayFinished = [];
+      const nextMatches = [];
 
-    document.getElementById('jadwal-pertandingan').innerHTML = final;
-  })
-  .catch(() => {
-    document.getElementById('jadwal-pertandingan').innerHTML = `<div style="text-align:center;padding:20px;">Gagal memuat data.</div>`;
-  });
+      allMatches.forEach(item => {
+        const matchEnd = new Date(item.matchTime.getTime() + 2 * 60 * 60 * 1000);
+        if (item.tanggal === todayStr) {
+          (matchEnd > now ? todayUpcoming : todayFinished).push(item);
+        } else {
+          nextMatches.push(item);
+        }
+      });
+
+      const sortByTime = (a, b) => a.matchTime - b.matchTime;
+      todayUpcoming.sort(sortByTime);
+      todayFinished.sort(sortByTime);
+      nextMatches.sort(sortByTime);
+
+      let html = '';
+      if (todayUpcoming.length) html += renderMatchList(`Jadwal Pertandingan Hari Ini`, todayUpcoming);
+      if (nextMatches.length) html += renderMatchList(`Jadwal Pertandingan Selanjutnya`, nextMatches);
+      if (todayFinished.length) html += renderMatchList(`Pertandingan yang Sudah Selesai`, todayFinished);
+
+      if (!html) {
+        html = '<div style="text-align:center;padding:20px;">Tidak ada pertandingan tersedia.</div>';
+      }
+
+      document.getElementById('jadwal-pertandingan').innerHTML = html;
+    })
+    .catch(() => {
+      document.getElementById('jadwal-pertandingan').innerHTML = `<div style="text-align:center;padding:20px;">Gagal memuat data.</div>`;
+    });
+}
+
+// Jalankan pertama kali
+loadMatchSchedule();
+
+// Auto refresh setiap 3 menit (180.000 ms)
+setInterval(loadMatchSchedule, 180000);
