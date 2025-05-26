@@ -55,7 +55,17 @@
       <input type="text" id="searchInput" placeholder="Cari tim, liga, atau tanggal..." style="width: 100%; padding: 8px; margin-bottom: 10px;">
           <div id="jadwal-pertandingan"/>
       </main>
-
+<div class="telegram-sticky" id="telegramSticky">
+  <a href="https://t.me/score808alternative" target="_blank" rel="noopener" class="telegram-link">
+    <svg xmlns="http://www.w3.org/2000/svg" class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9.993 16.2L9.62 20.03c.556 0 .8-.24 1.09-.53l2.62-2.49 5.44 3.97c1 .55 1.72.26 1.98-.92l3.6-16.87v-.01c.33-1.54-.58-2.14-1.56-1.77L1.16 9.18C-.33 9.76-.3 10.6.9 10.97l5.6 1.76L19.3 4.94c.57-.37 1.09-.17.66.2L9.993 16.2z"/>
+    </svg>
+    <span>Join Telegram</span>
+  </a>
+  <button class="telegram-close" onclick="document.getElementById('telegramSticky').style.display='none'">
+    &times;
+  </button>
+</div>
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/main.js"></script>
       <script src="assets/js/content.js"></script>
