@@ -202,6 +202,14 @@ a.a_btn {
     fill: #fff;
     opacity: 0.9;
   }
+  .day-divider {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
   #searchInput {
   width: 100%;
   max-width: 100%;
