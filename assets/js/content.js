@@ -28,6 +28,26 @@ function base64Encode(str) {
   return btoa(unescape(encodeURIComponent(str)));
 }
 
+function filterByDateAndTime(data) {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  return data.filter(item => {
+    const [year, month, day] = item.tanggal.split('-');
+    const [hour, minute] = normalizeTime(item.jam).split(':');
+
+    const matchDate = new Date(`${year}-${month}-${day}T${hour}:${minute}:00`);
+    const matchDay = new Date(matchDate.getFullYear(), matchDate.getMonth(), matchDate.getDate());
+
+    const isTodayOrTomorrow = matchDay.getTime() === today.getTime() || matchDay.getTime() === tomorrow.getTime();
+    const matchEndTime = new Date(matchDate.getTime() + 2 * 60 * 60 * 1000); // +2 jam
+
+    return isTodayOrTomorrow && now <= matchEndTime;
+  });
+}
+
 function generateHTML(data) {
   const grouped = {};
 
@@ -47,24 +67,24 @@ function generateHTML(data) {
       <div class="league-header">🏆 ${label}</div>`;
 
     grouped[key].forEach(item => {
-      const homeLogo = item.logoHome || 'https://via.placeholder.com/22';
-      const awayLogo = item.logoAway || 'https://via.placeholder.com/22';
+      const homeLogo = item.logoHome || 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+      const awayLogo = item.logoAway || 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
       const time = normalizeTime(item.jam);
       
-      const streamingUrl = `https://player.rosieworld.net/detail.html?v=1745381716708&mid=${item.linkStreaming}&type=1&pid=3&isTips=1&isLogin=0&sbtcolor=27c5c3&pfont=65px&host=dszb3.com&isStandalone=true`;
+      const streamingUrl = `https://widgets-livetracker.nami.com/id/football?profile=g9rzlugz3uxie81&trend=0&id=${item.linkStreaming}&timezone=%207%3A00`;
       const encodedUrl = base64Encode(streamingUrl);
 
-      const link = `https://beritanasional.eu.org/play.html?url+${encodedUrl}`;
+      const link = `https://livesports.score808.my.id/p/langsung.html?url+${encodedUrl}`;
 
       html += `
-        <a href="${link}" class="match-card" target="_blank" rel="noopener">
+        <a href="${link}" class="match-card elementskit_button" target="_blank" rel="noopener">
           <div class="team-column">
             <div class="team-row">
-              <img src="${homeLogo}" alt="${item.homeTeam}" class="team-logo">
+              <img data-src="${homeLogo}" alt="${item.homeTeam}" class="team-logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" loading="lazy">
               <span class="team-name">${item.homeTeam}</span>
             </div>
             <div class="team-row">
-              <img src="${awayLogo}" alt="${item.awayTeam}" class="team-logo">
+              <img data-src="${awayLogo}" alt="${item.awayTeam}" class="team-logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" loading="lazy">
               <span class="team-name">${item.awayTeam}</span>
             </div>
           </div>
@@ -83,26 +103,105 @@ function generateHTML(data) {
   return html || `<div style="text-align:center;padding:20px;">Tidak ada pertandingan tersedia.</div>`;
 }
 
+function lazyLoadImages() {
+  const imgs = document.querySelectorAll('img.team-logo');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.setAttribute('src', src);
+            img.removeAttribute('data-src');
+          }
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px 100px 0px',
+      threshold: 0.1
+    });
+
+    imgs.forEach(img => {
+      if (img.hasAttribute('data-src')) {
+        observer.observe(img);
+      }
+    });
+  } else {
+    // Fallback untuk browser lama
+    imgs.forEach(img => {
+      const src = img.getAttribute('data-src');
+      if (src) {
+        img.setAttribute('src', src);
+        img.removeAttribute('data-src');
+      }
+    });
+  }
+}
+
+
 let allData = [];
 
 function renderFilteredData(filter = '') {
-  if (!filter) {
-    document.getElementById('jadwal-pertandingan').innerHTML = generateHTML(allData);
-    return;
-  }
-  
-  const lowerFilter = filter.toLowerCase();
-  
-  // Filter data berdasarkan nama tim, liga, atau tanggal
-  const filtered = allData.filter(item => {
-    return item.liga.toLowerCase().includes(lowerFilter) ||
-           item.homeTeam.toLowerCase().includes(lowerFilter) ||
-           item.awayTeam.toLowerCase().includes(lowerFilter) ||
-           item.tanggal.toLowerCase().includes(lowerFilter);
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+
+  const matchesToday = [];
+  const matchesTomorrow = [];
+  const matchesDone = [];
+
+  allData.forEach(item => {
+    const [year, month, day] = item.tanggal.split('-');
+    const [hour, minute] = normalizeTime(item.jam).split(':');
+    const matchDate = new Date(`${year}-${month}-${day}T${hour}:${minute}:00`);
+    const matchDay = new Date(matchDate.getFullYear(), matchDate.getMonth(), matchDate.getDate());
+    const matchEndTime = new Date(matchDate.getTime() + 2 * 60 * 60 * 1000); // +2 jam
+
+    const isToday = matchDay.getTime() === today.getTime();
+    const isTomorrow = matchDay.getTime() === tomorrow.getTime();
+
+    let include = true;
+    if (filter) {
+      const lowerFilter = filter.toLowerCase();
+      include = item.liga.toLowerCase().includes(lowerFilter) ||
+                item.homeTeam.toLowerCase().includes(lowerFilter) ||
+                item.awayTeam.toLowerCase().includes(lowerFilter) ||
+                item.tanggal.toLowerCase().includes(lowerFilter);
+    }
+
+    if (include) {
+      if (isToday && now <= matchEndTime) {
+        matchesToday.push(item);
+      } else if (isTomorrow && now <= matchEndTime) {
+        matchesTomorrow.push(item);
+      } else if (now > matchEndTime) {
+        matchesDone.push(item);
+      }
+    }
   });
-  
-  document.getElementById('jadwal-pertandingan').innerHTML = generateHTML(filtered);
+
+  let html = '';
+
+  if (matchesToday.length > 0) {
+    html += `<h2 class="day-divider">📅 Jadwal Lengkap Hari Ini</h2>` + generateHTML(matchesToday);
+  }
+
+  if (matchesTomorrow.length > 0) {
+    html += `<h2 class="day-divider">📅 Jadwal Lengkap Selanjutnya</h2>` + generateHTML(matchesTomorrow);
+  }
+
+  if (matchesDone.length > 0) {
+    html += `<h2 class="day-divider">✅ Pertandingan Selesai</h2>` + generateHTML(matchesDone);
+  }
+
+  document.getElementById('jadwal-pertandingan').innerHTML = html || `<div style="text-align:center;padding:20px;">Tidak ada pertandingan tersedia.</div>`;
+  lazyLoadImages();
 }
+
 
 fetch(csvUrl)
   .then(response => response.text())
@@ -110,7 +209,6 @@ fetch(csvUrl)
     allData = parseCSV(csv);
     renderFilteredData();
 
-    // Tambahkan event listener pencarian
     document.getElementById('searchInput').addEventListener('input', e => {
       renderFilteredData(e.target.value);
     });
