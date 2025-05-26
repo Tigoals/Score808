@@ -71,10 +71,10 @@ function generateHTML(data) {
       const awayLogo = item.logoAway || 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
       const time = normalizeTime(item.jam);
       
-      const streamingUrl = `https://widgets-livetracker.nami.com/id/football?profile=g9rzlugz3uxie81&trend=0&id=${item.linkStreaming}&timezone=%207%3A00`;
+      const streamingUrl = `https://player.rosieworld.net/detail.html?v=1745381716708&mid=${item.linkStreaming}&type=1&pid=3&isTips=1&isLogin=0&sbtcolor=27c5c3&pfont=65px&host=dszb3.com&isStandalone=true`;
       const encodedUrl = base64Encode(streamingUrl);
 
-      const link = `https://livesports.score808.my.id/p/langsung.html?url+${encodedUrl}`;
+      const link = `https://beritanasional.eu.org/play.html?url+${encodedUrl}`;
 
       html += `
         <a href="${link}" class="match-card elementskit_button" target="_blank" rel="noopener">
