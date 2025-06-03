@@ -216,3 +216,23 @@ fetch(csvUrl)
   .catch(() => {
     document.getElementById('jadwal-pertandingan').innerHTML = `<div style="text-align:center;padding:20px;">Gagal memuat data.</div>`;
   });
+
+document.getElementById("menu-toggle").addEventListener("click", function () {
+    document.getElementById("main-nav").classList.toggle("show");
+  });
+window.addEventListener("message", function(e) {
+    if (e.origin !== "https://official.tigoals.my.id") return;
+    const iframe = document.getElementById("score808frame");
+    if (e.data && e.data.height) {
+      iframe.style.height = e.data.height + "px";
+    }
+  });
+function setTab(el, tabId) {
+  // Toggle active class
+  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+  el.classList.add('active');
+
+  // Toggle content
+  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById(tabId).style.display = 'block';
+}
