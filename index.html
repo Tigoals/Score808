@@ -19,44 +19,48 @@
       <meta content='Score808 Indonesia Live streaming tracker for football matches and broadcast schedules, you can watch Premier League, Champions League and more.' name='description'/>
       <meta content='Score808 Indonesia Live - Score808 Football Stream' property='og:title'/>
       <link href='https://tigoals.github.io/Score808' rel='canonical'/>
-      <meta content='https://tigoals.github.io/Score808' property='og:url'/>
+      <meta content='https://tigoals.github.io/Score80' property='og:url'/>
       <meta content='Score808 Indonesia Live streaming tracker for football matches and broadcast schedules, you can watch Premier League, Champions League and more.' name='og:description'/>
       <meta rel='preload' content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQzDGeJV6a9cf0DpcILg095NHsOgAyGtf4reFdWSe0OEqeMrENm9-PJcDVtN-MUTvSkCze1ydN8hqN8JqOly3O70zd5D7sDd_IU1s12Ffqzx3JRnsdeRcVdGJO8QJOuXPFFZ9fAjEckxBHth1zO3rfPrZ9s5mh0vO6kutS0PoVZAt6oWtrBXYkf3pDZRg/s1600/yallashoot.png' property='og:image'/>
       <meta content='@livescore808' property='profile:username'/>
       <meta content='summary' name='twitter:card'/>
       <meta content='@livescore808' name='twitter:title'/>
       <meta rel='preload' content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQzDGeJV6a9cf0DpcILg095NHsOgAyGtf4reFdWSe0OEqeMrENm9-PJcDVtN-MUTvSkCze1ydN8hqN8JqOly3O70zd5D7sDd_IU1s12Ffqzx3JRnsdeRcVdGJO8QJOuXPFFZ9fAjEckxBHth1zO3rfPrZ9s5mh0vO6kutS0PoVZAt6oWtrBXYkf3pDZRg/s1600/yallashoot.png' property='twitter:image'/>
-      <meta content='https://tigoals.github.io/Score808' name='twitter:url'/>
+      <meta content='https://tigoals.github.io/Score80' name='twitter:url'/>
    </head>
    <body>
       <!--=============== HEADER ===============-->
-      <header class="header">
-         <nav class="nav container">
-            <div class="nav__data">
-               <a href="#" class="nav__logo">
-                  <i class="ri-planet-line"></i> Score808.my.id
-               </a>
-               
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-menu-line nav__burger"></i>
-                  <i class="ri-close-line nav__close"></i>
-               </div>
-            </div>
-
-            <!--=============== NAV MENU ===============-->
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li><a href="https://www.score808.my.id" target="_blank" rel="noopener" class="nav__link">Home</a></li>
-               </ul>
-            </div>
-         </nav>
-      </header>
+<header class='site-header'>
+  <div class='container'>
+    <div class='logo'>Tigoals <span>Live</span></div>
+    <nav class='main-nav' id='main-nav'>
+      <a class='active' href='#'>Jadwal Live Bola</a>
+      <a href='#'>Live Streaming</a>
+    </nav>
+    <div class='icons'>
+      <button class='icon-btn' id='menu-toggle'>&#9776;</button>
+      <button class='icon-btn'>&#9881;&#65039;</button>
+      <button class='icon-btn'>👤</button>
+    </div>
+  </div>
+</header>
       <main>
-      <input type="text" id="searchInput" placeholder="Cari tim, liga, atau tanggal..." style="width: 100%; padding: 8px; margin-bottom: 10px;">
-          <div id="jadwal-pertandingan"/>
+         <div class='tabs-container'>
+  <button class='tab-button active' onclick='setTab(this, &apos;semua&apos;)'>Score808</button>
+  <button class='tab-button' onclick='setTab(this, &apos;live&apos;)'>Semua Live</button>
+</div>
+ <div class='tab-content' id='semua'>
+  <!-- Konten Semua -->
+  <iframe id='score808frame' scrolling='no' src='https://official.tigoals.my.id/p/streaming.html' style='width: 100%; border: none;'></iframe>
+</div>
+<div class='tab-content' id='live' style='display: none;'>
+  <!-- Konten Live -->
+ <div class='search'> <input id='searchInput' placeholder='Cari tim, liga, atau tanggal...' type='text'/></div>
+          <div id='jadwal-pertandingan'></div>
+</div>
       </main>
 <div class="telegram-sticky" id="telegramSticky">
-  <a href="https://t.me/score808alternative" target="_blank" rel="noopener" class="telegram-link">
+  <a href="https://t.me/namagrupkamu" target="_blank" rel="noopener" class="telegram-link">
     <svg xmlns="http://www.w3.org/2000/svg" class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
       <path d="M9.993 16.2L9.62 20.03c.556 0 .8-.24 1.09-.53l2.62-2.49 5.44 3.97c1 .55 1.72.26 1.98-.92l3.6-16.87v-.01c.33-1.54-.58-2.14-1.56-1.77L1.16 9.18C-.33 9.76-.3 10.6.9 10.97l5.6 1.76L19.3 4.94c.57-.37 1.09-.17.66.2L9.993 16.2z"/>
     </svg>
@@ -66,6 +70,8 @@
     &times;
   </button>
 </div>
+
+
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/main.js"></script>
       <script src="assets/js/content.js"></script>
