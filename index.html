@@ -1,82 +1,122 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-      <!--=============== REMIXICONS ===============-->
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
-      <link rel="stylesheet" href="assets/css/content.css">
-
-      <title>Score808 Indonesia</title>
-      <meta content='width=device-width, initial-scale=1' name='viewport'/>
-      <meta content='#212121' name='theme-color'/>
-      <meta content='#212121' name='msapplication-navbutton-color'/>
-      <link href='https://www.score808.my.id/image/favicon.ico' rel='icon' type='image/x-icon'/>
-      <meta content='Score808 Indonesia Live streaming tracker for football matches and broadcast schedules, you can watch Premier League, Champions League and more.' name='description'/>
-      <meta content='Score808 Indonesia Live - Score808 Football Stream' property='og:title'/>
-      <link href='https://tigoals.github.io/Score808' rel='canonical'/>
-      <meta content='https://tigoals.github.io/Score80' property='og:url'/>
-      <meta content='Score808 Indonesia Live streaming tracker for football matches and broadcast schedules, you can watch Premier League, Champions League and more.' name='og:description'/>
-      <meta rel='preload' content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQzDGeJV6a9cf0DpcILg095NHsOgAyGtf4reFdWSe0OEqeMrENm9-PJcDVtN-MUTvSkCze1ydN8hqN8JqOly3O70zd5D7sDd_IU1s12Ffqzx3JRnsdeRcVdGJO8QJOuXPFFZ9fAjEckxBHth1zO3rfPrZ9s5mh0vO6kutS0PoVZAt6oWtrBXYkf3pDZRg/s1600/yallashoot.png' property='og:image'/>
-      <meta content='@livescore808' property='profile:username'/>
-      <meta content='summary' name='twitter:card'/>
-      <meta content='@livescore808' name='twitter:title'/>
-      <meta rel='preload' content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQzDGeJV6a9cf0DpcILg095NHsOgAyGtf4reFdWSe0OEqeMrENm9-PJcDVtN-MUTvSkCze1ydN8hqN8JqOly3O70zd5D7sDd_IU1s12Ffqzx3JRnsdeRcVdGJO8QJOuXPFFZ9fAjEckxBHth1zO3rfPrZ9s5mh0vO6kutS0PoVZAt6oWtrBXYkf3pDZRg/s1600/yallashoot.png' property='twitter:image'/>
-      <meta content='https://tigoals.github.io/Score80' name='twitter:url'/>
-      <style>.day-divider { color: #5b7faf; font-size: 12px; font-weight: bold; margin-top: 3px; margin-bottom: 10px; border-bottom: 2px solid #ccc; padding-bottom: 5px; }</style>
-   </head>
-   <body>
-      <!--=============== HEADER ===============-->
-<header class='site-header'>
-  <div class='container'>
-    <div class='logo'>Tigoals <span>Live</span></div>
-    <nav class='main-nav' id='main-nav'>
-      <a class='active' href='#'>Jadwal Live Bola</a>
-      <a href='#'>Live Streaming</a>
-    </nav>
-    <div class='icons'>
-      <button class='icon-btn' id='menu-toggle'>&#9776;</button>
-      <button class='icon-btn'>&#9881;&#65039;</button>
-      <button class='icon-btn'>👤</button>
-    </div>
-  </div>
-</header>
-      <main>
-         <div class='tabs-container'>
-  <button class='tab-button active' onclick='setTab(this, &apos;semua&apos;)'>Score808</button>
-  <button class='tab-button' onclick='setTab(this, &apos;live&apos;)'>Semua Live</button>
+<html lang='en'>
+<head>
+<title>Tigoals Live - Score808 Streaming Football</title>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta content='#212121' name='theme-color'/>
+    <meta content='#212121' name='msapplication-navbutton-color'/>
+    <link href='https://www.score808.my.id/image/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta content='Tigoals Live streaming tracker for football matches and broadcast schedules, you can watch Premier League, Champions League and more.' name='description'/>
+    <meta content='Tigoals Live - Score808 Football Stream' property='og:title'/>
+    <link href='https://www.tigoals.my.id/' rel='canonical'/>
+    <meta content='https://www.tigoals.my.id' property='og:url'/>
+    <meta content='Tigoals Live streaming tracker for football matches and broadcast schedules, you can watch Premier League, Champions League and more.' name='og:description'/>
+    <meta rel='preload' content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQzDGeJV6a9cf0DpcILg095NHsOgAyGtf4reFdWSe0OEqeMrENm9-PJcDVtN-MUTvSkCze1ydN8hqN8JqOly3O70zd5D7sDd_IU1s12Ffqzx3JRnsdeRcVdGJO8QJOuXPFFZ9fAjEckxBHth1zO3rfPrZ9s5mh0vO6kutS0PoVZAt6oWtrBXYkf3pDZRg/s1600/yallashoot.png' property='og:image'/>
+    <meta content='@tigoals' property='profile:username'/>
+    <meta content='summary' name='twitter:card'/>
+    <meta content='@tigoals' name='twitter:title'/>
+    <meta rel='preload' content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQzDGeJV6a9cf0DpcILg095NHsOgAyGtf4reFdWSe0OEqeMrENm9-PJcDVtN-MUTvSkCze1ydN8hqN8JqOly3O70zd5D7sDd_IU1s12Ffqzx3JRnsdeRcVdGJO8QJOuXPFFZ9fAjEckxBHth1zO3rfPrZ9s5mh0vO6kutS0PoVZAt6oWtrBXYkf3pDZRg/s1600/yallashoot.png' property='twitter:image'/>
+    <meta content='https://www.tigoals.my.id' name='twitter:url'/>
+    <link href='https://pro.fontawesome.com/releases/v5.15.0/css/all.css' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<meta name="google-site-verification" content="vLnAJ5ESH7Rw4dp43Hj2KAxYEPqxcRauzmviepQm2G4" />
+<style>html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}.social a:before{font-size:24px;display:inline-block;font-family:'Font Awesome 5 Brands';font-style:normal;font-weight:400}.social .blogger a:before{content:'\f37d'}.social .facebook a:before{content:'\f09a'}.social .twitter a:before{content:'\f099'}.social .rss a:before{content:'\f09e';font-family:'Font Awesome 5 Free';font-weight:900}.social .youtube a:before{content:'\f167'}.social .skype a:before{content:'\f17e'}.social .stumbleupon a:before{content:'\f1a4'}.social .tumblr a:before{content:'\f173'}.social .vk a:before{content:'\f189'}.social .stack-overflow a:before{content:'\f16c'}.social .github a:before{content:'\f09b'}.social .linkedin a:before{content:'\f0e1'}.social .dribbble a:before{content:'\f17d'}.social .soundcloud a:before{content:'\f1be'}.social .behance a:before{content:'\f1b4'}.social .digg a:before{content:'\f1a6'}.social .tiktok a:before{content:'\e07b'}.social .instagram a:before{content:'\f16d'}.social .pinterest a:before{content:'\f0d2'}.social .twitch a:before{content:'\f1e8'}.social .delicious a:before{content:'\f1a5'}.social .codepen a:before{content:'\f1cb'}.social .flipboard a:before{content:'\f44d'}.social .reddit a:before{content:'\f1a1'}.social .whatsapp a:before{content:'\f232'}.social .messenger a:before{content:'\f39f'}.social .snapchat a:before{content:'\f2ac'}.social .email a:before{content:'\f0e0';font-family:'Font Awesome 5 Free'}.social .external-link a:before{content:'\f35d';font-family:'Font Awesome 5 Free';font-weight:900}body{overflow-wrap:break-word;word-break:break-word;word-wrap:break-word}.hidden{display:none}.invisible{visibility:hidden}
+	.bg-rianseo{width:100vw}.container{display:flex;min-height:100vh;justify-content:center}.widget-flex{text-align:center}.widget_bottom{position:relative;z-index:999;padding-bottom:176px;margin:0 auto;margin-top:48px}
+	.widget_bottom p,.bioLink-text{padding:0;margin:0}.widget_bottom h3,.widget_bottom p,.bioLink-text{text-align:center}ul.social{margin:16px 0 0;list-style:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:0}ul.social li{margin:0 12px 12px}ul.social li:hover{transition:all .1s ease-in-out;transform:scale(1.1)}.bioLink-item:hover{transform:translate3d(0px,0px,0px) scale(1.015)}.bioLink-item{border-radius:8px;position:relative;margin:16px 0;transition:transform .15s cubic-bezier(.17,.67,.29,2.71) 0s}.bioLink-item a{text-decoration:none;display:flex;justify-content:center;align-items:center;padding:10px;overflow:hidden;font-size:16px;z-index:10;box-sizing:border-box;min-height:56px}.bioLink-text{font-weight:600!important;width:55%;word-break:break-word}.bioLink-shadow{border-radius:8px;box-shadow:0px 6px 14px -6px rgb(24 39 75 / 12%), 0px 10px 32px -4px rgb(24 39 75 / 10%), inset 0px 0px 2px 1px rgb(255 255 255 / 5%);box-sizing:border-box;position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1}.copyright-web{position:relative;text-align:center;padding:0 0 35px;overflow:hidden}.copyright-web img{background:#fff;width:32px;object-fit:contain;height:32px;border:1px solid rgba(155,155,155,0.1)}
+	.img_story {padding: 4px;background: hsl(214, 89%, 52%);width: 94px;
+    height: 94px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto}
+    #liveStreamContainer{position:fixed;bottom:100px;right:15px;z-index:9999;display:flex;align-items:center;gap:10px;animation:pulse 1.8s infinite}#liveStreamBtn{background:red;color:#fff;padding:12px 20px;border-radius:50px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;text-decoration:none;box-shadow:0 4px 12px rgb(0 0 0 / .3);transition:transform 0.3s ease,background 0.3s ease}#liveStreamBtn:hover{background:#e60000;transform:scale(1.05)}#liveStreamBtn svg{width:20px;height:20px;fill:#fff}#closeBtn{background:#fff;color:red;border:2px solid red;font-size:16px;border-radius:50%;width:30px;height:30px;cursor:pointer;font-weight:700;line-height:26px;text-align:center;padding:0;transition:0.3s ease}#closeBtn:hover{background:red;color:#fff}@keyframes pulse{0%{box-shadow:0 0 0 0 rgb(255 0 0 / .4)}70%{box-shadow:0 0 0 15px #fff0}100%{box-shadow:0 0 0 0 #fff0}}@media (max-width:600px){#liveStreamBtn{font-size:13px;padding:10px 16px}#closeBtn{width:26px;height:26px;font-size:14px;line-height:22px}}
+	.logo-footer {opacity:0.5;color: #fff;text-align: center;bottom: 32px;left: calc(50% - 15px);position: absolute}
+a:link,a:visited,.widget_bottom h1,.widget_bottom .caption{color:#ffffff}.bg-rianseo{background:#131212}.widget_bottom{width:640px}
+	.widget_bottom h1{margin-top:16px;margin-bottom:0;font-family:Inter, sans-serif;font-size:18px;font-weight:700}
+	.widget_bottom h2.caption {line-height:22px;margin-top:12px}
+	.widget_bottom .caption,.bioLink-text{font-family:Inter, sans-serif;font-size:16px;font-weight:400}.bioLink-shadow{border:0 solid transparent;background:#212121}
+@media (max-width:768px){.widget_bottom {width:90%}}.jadwal-container{background:#111;color:#fff;padding:1rem;border-radius:10px;font-family:sans-serif}
+.match-block{margin-bottom:10px;border-radius:8px;overflow:hidden;font-family:'Segoe UI',sans-serif}.league-header{background:#0b1b2a;color:#fff;font-weight:700;padding:8px 16px;font-size:14px}.match-card{background:#162c45;color:#fff;border:.5px solid #fff;border-radius:8px;padding:10px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;transition:box-shadow 0.3s ease}.team-column{display:flex;flex-direction:column;gap:10px}.team-row{display:flex;align-items:center;gap:10px}.team-logo{width:22px;height:22px;object-fit:contain;border-radius:50%;background:#fff}.team-name{font-size:14px;white-space:nowrap}.match-time{font-size:14px;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:6px}.match-time .icon{width:20px;height:20px;fill:#fff;opacity:.9}.match-date-header{text-align:center;background:#1f2937;color:#fff;padding:10px 14px;font-weight:700;font-size:1rem;border-radius:8px;margin-top:20px;margin-bottom:5px}.day-divider{font-size:17px;font-weight:700;margin-top:3px;margin-bottom:10px;border-bottom:2px solid #ccc;padding-bottom:5px}#searchInput{width:100%;max-width:100%;margin:0 auto 16px auto;padding:12px 16px;font-size:16px;border:2px solid #ddd;border-radius:8px;outline:none;box-sizing:border-box;transition:border-color 0.3s ease,box-shadow 0.3s ease;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}#searchInput::placeholder{color:#aaa;font-style:italic}#searchInput:focus{border-color:#27c5c3;box-shadow:0 0 8px rgb(39 197 195 / .5)}#jadwal-pertandingan{font-family:sans-serif;padding:1px}.telegram-button{display:inline-flex;align-items:center;background:#08c;color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:10px 16px;border-radius:10px;transition:background 0.3s ease;box-shadow:0 4px 12px rgb(0 136 204 / .2);width:auto;justify-content:center;opacity:0;transform:translateY(20px);animation:fadeInUp 1s ease forwards}.telegram-button:hover{background:#007bb8}.telegram-icon{width:20px;height:20px;margin-right:10px;fill:#fff}@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}@media (max-width:480px){.telegram-button{font-size:14px;padding:8px 12px}.telegram-icon{width:18px;height:18px;margin-right:6px}}
+.prof { width: 100%; height: 100%; box-sizing: border-box; border-radius: 50%; -o-object-fit: cover; object-fit: cover; border: 3px solid #131212; }
+</style>
+</head>
+<body>
+<div class='container'>
+	<div class='bg-rianseo'/>
+	<div class="widget_bottom section" id="widget_bottom" name="Widget">
+		<div class="widget Image" id="Image1">
+<div class="widget-content">
+	<div class='img_story'>
+<img class="prof" alt="@tigoals live" src='https://blogger.googleusercontent.com/img/a/AVvXsEjZJfXm-E9cwfD3s9JLMt7Suk9THyblFSBwcU4rJgWF0xdvU__v50PcidHOoNbEo0aojkOfysvtCc1wS-lIIVisMvgslzJ1otht6zknZ88t9wZ9aUDZuLtk8WiBwgpq620wNfqLVmQF1f879ToLCpNoIfLgum9cxhJ8dsuT1oWbldou6dG6r6ZL8BrLoOg=w150-h150-p-k-no-nu'>
+	</div>
+<div class="widget-flex">
+<h1 class="title">Tigoals Live <svg style='margin-bottom:-2px' fill="none" height="16" viewBox="0 0 16 16" width="16"><path clip-rule="evenodd" d="M8 0L9.99182 1.3121L12.3696 1.29622L13.3431 3.48797L15.3519 4.77336L14.9979 7.14888L16 9.32743L14.431 11.1325L14.1082 13.5126L11.8223 14.1741L10.277 16L8 15.308L5.72296 16L4.17772 14.1741L1.89183 13.5126L1.569 11.1325L0 9.32743L1.00206 7.14888L0.648112 4.77336L2.65693 3.48797L3.6304 1.29622L6.00818 1.3121L8 0Z" fill="#0095F6" fill-rule="evenodd"></path><path clip-rule="evenodd" d="M10.4036 5.20536L7.18853 8.61884L6.12875 7.49364C5.8814 7.23102 5.46798 7.21864 5.20536 7.466C4.94274 7.71335 4.93036 8.12677 5.17771 8.38939L6.71301 10.0195C6.9709 10.2933 7.40616 10.2933 7.66405 10.0195L11.3546 6.10111C11.6019 5.83848 11.5896 5.42507 11.3269 5.17771C11.0643 4.93036 10.6509 4.94274 10.4036 5.20536Z" fill="white" fill-rule="evenodd"></path></svg></h1>
+<h2 class="caption">Score808 Live Sports Streaming Today Match</h2>
+	</div>
 </div>
- <div class='tab-content' id='semua'>
-  <!-- Konten Semua -->
-  <iframe id='score808frame' scrolling='no' src='https://official.tigoals.my.id/p/streaming.html' style='width: 100%; border: none;'></iframe>
+</div><div class="widget LinkList">
+<div class="widget-content">
+<ul class="social">
+<li class="facebook"><a href="https://www.facebook.com/score808alternative" title="Facebook"></a></li>
+<li class="twitter"><a href="https://twitter.com/livescore808" title="Twitter"></a></li>
+<li class="instagram"><a href="https://www.instagram.com/808footballnews" title="Instagram"></a></li>
+<li class="youtube"><a href="https://www.youtube.com/@808footballnews?sub_confirmation=1" title="Youtube"></a></li>
+<li class="tiktok"><a href="https://www.tiktok.com/@808footballnews" title="Tiktok"></a></li>
+<li class="github"><a href="https://github.com/score808pages" title="Github"></a></li>
+</ul>
 </div>
-<div class='tab-content' id='live' style='display: none;'>
-  <!-- Konten Live -->
- <div class='search'> <input id='searchInput' placeholder='Cari tim, liga, atau tanggal...' type='text'/></div>
-          <div id='jadwal-pertandingan'></div>
+</div><div class="widget LinkList">
+<div class="widget-content">
+<div class="bioLink">
+<div class="bioLink-item">
+<div class="bioLink-shadow"></div>
+<a href="https://www.score808.my.id/sports" target="_blank" title="score808 live bola"><span class="bioLink-text">Live Tigoals</span></a>
 </div>
-      </main>
-<div class="telegram-sticky" id="telegramSticky">
-  <a href="https://t.me/namagrupkamu" target="_blank" rel="noopener" class="telegram-link">
-    <svg xmlns="http://www.w3.org/2000/svg" class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M9.993 16.2L9.62 20.03c.556 0 .8-.24 1.09-.53l2.62-2.49 5.44 3.97c1 .55 1.72.26 1.98-.92l3.6-16.87v-.01c.33-1.54-.58-2.14-1.56-1.77L1.16 9.18C-.33 9.76-.3 10.6.9 10.97l5.6 1.76L19.3 4.94c.57-.37 1.09-.17.66.2L9.993 16.2z"/>
+
+<div class="bioLink-item">
+<div class="bioLink-shadow"></div>
+<a href="https://www.youtube.com/@808footballnews" target="_blank" title="My Product"><span class="bioLink-text">Live on Youtube</span></a>
+</div>
+<div class="bioLink-item">
+<div class="bioLink-shadow"></div>
+<a href="https://t.me/+xMHtyocQutUwYzk1" target="_blank" title="WhastApp Shop"><span class="bioLink-text">Join Telegram</span></a>
+</div>
+<div class="bioLink-item">
+<div class="bioLink-shadow"></div>
+<a href="https://www.facebook.com/score808live08" target="_blank" title="Facebook profil"><span class="bioLink-text">Facebook</span></a>
+</div>
+<br/><input type="text" id="searchInput" placeholder="Cari pertandingan..." />
+  <div id="jadwal-pertandingan"></div>
+<br/>
+</div>
+</div>
+
+</div>
+		 <div id="liveStreamContainer">
+  <a href="https://score808.my.id/live" id="liveStreamBtn" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M10 8.64v6.72L15.27 12 10 8.64M8 5v14l11-7L8 5z"/>
     </svg>
-    <span>Join Telegram</span>
+    Live Streaming
   </a>
-  <button class="telegram-close" onclick="document.getElementById('telegramSticky').style.display='none'">
-    &times;
-  </button>
+  <button id="closeBtn">✕</button>
 </div>
-
-
-      <!--=============== MAIN JS ===============-->
-     <!-- <script src="assets/js/main.js"></script>-->
-      <script src="assets/js/content.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-
-   </body>
+<script>
+document.getElementById("closeBtn").addEventListener("click", function () {
+  document.getElementById("liveStreamContainer").style.display = "none";
+});
+</script>
+<div class='logo-footer'>
+			<svg width='32' height='32' viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+</svg>
+		</div>
+	</div></div>
+	<script>//<![CDATA[ 
+const _0x58c5b3=_0x2c76;(function(_0x5e7aa3,_0x532f67){const _0x95e742=_0x2c76,_0x36f537=_0x5e7aa3();while(!![]){try{const _0x141f39=parseInt(_0x95e742(0x180))/0x1*(parseInt(_0x95e742(0x17a))/0x2)+-parseInt(_0x95e742(0x195))/0x3+-parseInt(_0x95e742(0x16d))/0x4*(-parseInt(_0x95e742(0x17c))/0x5)+-parseInt(_0x95e742(0x1b4))/0x6+-parseInt(_0x95e742(0x16b))/0x7*(parseInt(_0x95e742(0x16e))/0x8)+parseInt(_0x95e742(0x193))/0x9*(parseInt(_0x95e742(0x192))/0xa)+parseInt(_0x95e742(0x1a7))/0xb;if(_0x141f39===_0x532f67)break;else _0x36f537['push'](_0x36f537['shift']());}catch(_0x28700b){_0x36f537['push'](_0x36f537['shift']());}}}(_0x2a55,0xcd9d3));const csvUrl=_0x58c5b3(0x1aa);function parseCSV(_0x36169a){const _0x447e2b=_0x58c5b3,_0x512a9b=_0x36169a[_0x447e2b(0x1b0)]()[_0x447e2b(0x171)]('\x0a')['map'](_0x2514df=>_0x2514df[_0x447e2b(0x171)](',')),_0x1c7d16=_0x512a9b['shift']()['map'](_0xff695e=>_0xff695e[_0x447e2b(0x1b0)]());return _0x512a9b[_0x447e2b(0x18f)](_0xd2eeba=>{const _0x3c9046=_0x447e2b;let _0x5944b1={};return _0xd2eeba[_0x3c9046(0x18b)]((_0x153b9a,_0x563eeb)=>{const _0x17ff23=_0x3c9046;_0x5944b1[_0x1c7d16[_0x563eeb]]=_0x153b9a[_0x17ff23(0x1b0)]();}),_0x5944b1;});}function getDayLabel(_0x22ffd9){const _0x522946=_0x58c5b3,_0x475962=[_0x522946(0x1bb),_0x522946(0x16f),_0x522946(0x177),'Rabu',_0x522946(0x1bd),_0x522946(0x19a),'Sabtu'],_0x10b883=[_0x522946(0x189),_0x522946(0x178),'Maret',_0x522946(0x1a1),'Mei',_0x522946(0x17d),'Juli','Agustus','September',_0x522946(0x179),'November',_0x522946(0x1a9)],_0x3c6be4=new Date(_0x22ffd9);return _0x475962[_0x3c6be4['getDay']()]+',\x20'+_0x3c6be4[_0x522946(0x1b7)]()+'\x20'+_0x10b883[_0x3c6be4['getMonth']()];}function normalizeTime(_0xac01b3){const _0x3aea9c=_0x58c5b3,_0x46f6ab=_0xac01b3['split'](':');return _0x46f6ab[0x0][_0x3aea9c(0x1ad)](0x2,'0')+':'+(_0x46f6ab[0x1]||'00')[_0x3aea9c(0x1ad)](0x2,'0');}function base64Encode(_0x34f1a0){return btoa(unescape(encodeURIComponent(_0x34f1a0)));}function filterByDateAndTime(_0x3ea492){const _0x4859ca=_0x58c5b3,_0x2f4496=new Date(),_0x53b5e2=new Date(_0x2f4496[_0x4859ca(0x1af)](),_0x2f4496[_0x4859ca(0x1a4)](),_0x2f4496['getDate']()),_0x4ad99c=new Date(_0x53b5e2);return _0x4ad99c['setDate'](_0x4ad99c[_0x4859ca(0x1b7)]()+0x1),_0x3ea492[_0x4859ca(0x170)](_0x1c55f0=>{const _0x5b00d4=_0x4859ca,[_0x442289,_0x4708c3,_0x15535d]=_0x1c55f0['tanggal'][_0x5b00d4(0x171)]('-'),[_0x2c8cc8,_0x1c0ca8]=normalizeTime(_0x1c55f0['jam'])[_0x5b00d4(0x171)](':'),_0x37f141=new Date(_0x442289+'-'+_0x4708c3+'-'+_0x15535d+'T'+_0x2c8cc8+':'+_0x1c0ca8+':00'),_0x1a6024=new Date(_0x37f141['getFullYear'](),_0x37f141[_0x5b00d4(0x1a4)](),_0x37f141[_0x5b00d4(0x1b7)]()),_0x2737fd=_0x1a6024[_0x5b00d4(0x1c0)]()===_0x53b5e2[_0x5b00d4(0x1c0)]()||_0x1a6024['getTime']()===_0x4ad99c[_0x5b00d4(0x1c0)](),_0x580e2e=new Date(_0x37f141[_0x5b00d4(0x1c0)]()+0x2*0x3c*0x3c*0x3e8);return _0x2737fd&&_0x2f4496<=_0x580e2e;});}function generateHTML(_0xb0a432){const _0x4d79b3=_0x58c5b3,_0x5e4119={};_0xb0a432['forEach'](_0x164470=>{const _0x6f655e=_0x2c76,_0x4f71f3=_0x164470[_0x6f655e(0x197)]+'|'+_0x164470[_0x6f655e(0x1a2)];if(!_0x5e4119[_0x4f71f3])_0x5e4119[_0x4f71f3]=[];_0x5e4119[_0x4f71f3][_0x6f655e(0x19b)](_0x164470);});let _0x309d1a='';for(const _0x45d8b0 in _0x5e4119){const [_0x2759b3,_0x4ef572]=_0x45d8b0[_0x4d79b3(0x171)]('|'),_0x1f2527=_0x2759b3+_0x4d79b3(0x17b)+getDayLabel(_0x4ef572);_0x309d1a+='<div\x20class=\x22match-block\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22league-header\x22>🏆\x20'+_0x1f2527+_0x4d79b3(0x1a8),_0x5e4119[_0x45d8b0]['forEach'](_0x3c8bd5=>{const _0x1092c8=_0x4d79b3,_0x396ee8=_0x3c8bd5[_0x1092c8(0x1ae)]||_0x1092c8(0x18a),_0x5b5e1b=_0x3c8bd5[_0x1092c8(0x1a6)]||'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',_0x1ab01b=normalizeTime(_0x3c8bd5[_0x1092c8(0x187)]),_0x2227ff=_0x1092c8(0x1a3)+_0x3c8bd5[_0x1092c8(0x19e)]+'&timezone=%207%3A00',_0x1bbc14=base64Encode(_0x2227ff),_0x21661a=_0x1092c8(0x1bf)+_0x1bbc14;_0x309d1a+=_0x1092c8(0x182)+_0x21661a+_0x1092c8(0x199)+_0x396ee8+_0x1092c8(0x18c)+_0x3c8bd5[_0x1092c8(0x184)]+_0x1092c8(0x183)+_0x3c8bd5[_0x1092c8(0x184)]+_0x1092c8(0x1a0)+_0x5b5e1b+'\x22\x20alt=\x22'+_0x3c8bd5[_0x1092c8(0x1b8)]+_0x1092c8(0x183)+_0x3c8bd5['awayTeam']+_0x1092c8(0x181)+_0x1ab01b+_0x1092c8(0x1bc);}),_0x309d1a+=_0x4d79b3(0x1a8);}return _0x309d1a||_0x4d79b3(0x1a5);}function lazyLoadImages(){const _0x45024e=_0x58c5b3,_0x378343=document[_0x45024e(0x1b3)](_0x45024e(0x188));if(_0x45024e(0x175)in window){const _0x49605f=new IntersectionObserver(_0x2d42ea=>{const _0x5e17b8=_0x45024e;_0x2d42ea[_0x5e17b8(0x18b)](_0x50bba4=>{const _0x19eb4c=_0x5e17b8;if(_0x50bba4[_0x19eb4c(0x18d)]){const _0x238cef=_0x50bba4[_0x19eb4c(0x1b2)],_0x45c2ff=_0x238cef[_0x19eb4c(0x190)](_0x19eb4c(0x176));_0x45c2ff&&(_0x238cef[_0x19eb4c(0x1ac)](_0x19eb4c(0x16c),_0x45c2ff),_0x238cef[_0x19eb4c(0x1be)]('data-src')),_0x49605f[_0x19eb4c(0x1ba)](_0x238cef);}});},{'rootMargin':'0px\x200px\x20100px\x200px','threshold':0.1});_0x378343[_0x45024e(0x18b)](_0x144bc3=>{const _0x1bde4d=_0x45024e;_0x144bc3[_0x1bde4d(0x19c)](_0x1bde4d(0x176))&&_0x49605f[_0x1bde4d(0x19d)](_0x144bc3);});}else _0x378343[_0x45024e(0x18b)](_0x277c09=>{const _0x5d5aca=_0x45024e,_0x10732f=_0x277c09[_0x5d5aca(0x190)](_0x5d5aca(0x176));_0x10732f&&(_0x277c09[_0x5d5aca(0x1ac)](_0x5d5aca(0x16c),_0x10732f),_0x277c09[_0x5d5aca(0x1be)](_0x5d5aca(0x176)));});}let allData=[];function _0x2a55(){const _0x4d3bda=['length','map','getAttribute','searchInput','8164060IopeqY','9ArVvKA',':00','2110644moxcqR','catch','liga','addEventListener','\x22\x20class=\x22match-card\x20elementskit_button\x22\x20target=\x22_blank\x22\x20rel=\x22noopener\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22team-column\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22team-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20data-src=\x22','Jumat','push','hasAttribute','observe','linkStreaming','<h2\x20class=\x22day-divider\x22>📅\x20Jadwal\x20Lengkap\x20Selanjutnya</h2>','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22team-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20data-src=\x22','April','tanggal','https://widgets-livetracker.nami.com/id/football?profile=g9rzlugz3uxie81&trend=0&id=','getMonth','<div\x20style=\x22text-align:center;padding:20px;\x22>Tidak\x20ada\x20pertandingan\x20tersedia.</div>','logoAway','20249548QFtyhm','</div>','Desember','https://docs.google.com/spreadsheets/d/e/2PACX-1vQoqUMApbGKBfLJOIE1jztwA5bOsiQuCx5LzexE8ip7jJK_Ue6Kkx7bqTOu8jLKUlw0sc6-zLg2kOmA/pub?gid=0&single=true&output=csv','setDate','setAttribute','padStart','logoHome','getFullYear','trim','innerHTML','target','querySelectorAll','7768554rESzZK','jadwal-pertandingan','input','getDate','awayTeam','text','unobserve','Minggu','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20class=\x22icon\x22\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20viewBox=\x220\x200\x2024\x2024\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<path\x20d=\x22M10\x2016.5L16\x2012L10\x207.5V16.5ZM21\x203H3C1.89\x203\x201\x203.89\x201\x205V17C1\x2018.11\x201.89\x2019\x203\x2019H8V21H16V19H21C22.11\x2019\x2023\x2018.11\x2023\x2017V5C23\x203.89\x2022.11\x203\x2021\x203ZM21\x2017H3V5H21V17Z\x22/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</a>','Kamis','removeAttribute','https://livesports.score808.my.id/p/langsung.html?url+','getTime','21pUMpjT','src','32MtVIEt','212840aUPDRJ','Senin','filter','split','then','getElementById','<h2\x20class=\x22day-divider\x22>📅\x20Jadwal\x20Lengkap\x20Hari\x20Ini</h2>','IntersectionObserver','data-src','Selasa','Februari','Oktober','2IkNZMV','\x20–\x20','110435QalxsT','Juni','includes','value','86347otNvxa','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22match-time\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22','\x22\x20class=\x22team-logo\x22\x20src=\x22data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==\x22\x20loading=\x22lazy\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22team-name\x22>','homeTeam','<h2\x20class=\x22day-divider\x22>✅\x20Pertandingan\x20Selesai</h2>','toLowerCase','jam','img.team-logo','Januari','data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==','forEach','\x22\x20alt=\x22','isIntersecting'];_0x2a55=function(){return _0x4d3bda;};return _0x2a55();}function _0x2c76(_0x2826a4,_0xc64739){const _0x2a55fe=_0x2a55();return _0x2c76=function(_0x2c76bc,_0x133f3d){_0x2c76bc=_0x2c76bc-0x16b;let _0x438443=_0x2a55fe[_0x2c76bc];return _0x438443;},_0x2c76(_0x2826a4,_0xc64739);}function renderFilteredData(_0x24ad37=''){const _0x2f6b6c=_0x58c5b3,_0x3bd1ef=new Date(),_0x5a8dac=new Date(_0x3bd1ef[_0x2f6b6c(0x1af)](),_0x3bd1ef[_0x2f6b6c(0x1a4)](),_0x3bd1ef['getDate']()),_0x19333c=new Date(_0x5a8dac);_0x19333c[_0x2f6b6c(0x1ab)](_0x5a8dac[_0x2f6b6c(0x1b7)]()+0x1);const _0x597a60=[],_0x5b4458=[],_0x20c895=[];allData[_0x2f6b6c(0x18b)](_0x1b9c19=>{const _0x541e1e=_0x2f6b6c,[_0x21f151,_0x3ae2b4,_0x499d47]=_0x1b9c19['tanggal'][_0x541e1e(0x171)]('-'),[_0x4e42e9,_0x2b5a75]=normalizeTime(_0x1b9c19[_0x541e1e(0x187)])['split'](':'),_0x576524=new Date(_0x21f151+'-'+_0x3ae2b4+'-'+_0x499d47+'T'+_0x4e42e9+':'+_0x2b5a75+_0x541e1e(0x194)),_0x210d75=new Date(_0x576524[_0x541e1e(0x1af)](),_0x576524[_0x541e1e(0x1a4)](),_0x576524['getDate']()),_0x40c358=new Date(_0x576524[_0x541e1e(0x1c0)]()+0x2*0x3c*0x3c*0x3e8),_0x29c959=_0x210d75['getTime']()===_0x5a8dac[_0x541e1e(0x1c0)](),_0x8a1c8b=_0x210d75[_0x541e1e(0x1c0)]()===_0x19333c[_0x541e1e(0x1c0)]();let _0x2dcda2=!![];if(_0x24ad37){const _0x29cca2=_0x24ad37['toLowerCase']();_0x2dcda2=_0x1b9c19[_0x541e1e(0x197)][_0x541e1e(0x186)]()[_0x541e1e(0x17e)](_0x29cca2)||_0x1b9c19['homeTeam'][_0x541e1e(0x186)]()[_0x541e1e(0x17e)](_0x29cca2)||_0x1b9c19[_0x541e1e(0x1b8)][_0x541e1e(0x186)]()[_0x541e1e(0x17e)](_0x29cca2)||_0x1b9c19['tanggal'][_0x541e1e(0x186)]()[_0x541e1e(0x17e)](_0x29cca2);}if(_0x2dcda2){if(_0x29c959&&_0x3bd1ef<=_0x40c358)_0x597a60[_0x541e1e(0x19b)](_0x1b9c19);else{if(_0x8a1c8b&&_0x3bd1ef<=_0x40c358)_0x5b4458['push'](_0x1b9c19);else _0x3bd1ef>_0x40c358&&_0x20c895[_0x541e1e(0x19b)](_0x1b9c19);}}});let _0x5f3c90='';_0x597a60[_0x2f6b6c(0x18e)]>0x0&&(_0x5f3c90+=_0x2f6b6c(0x174)+generateHTML(_0x597a60)),_0x5b4458['length']>0x0&&(_0x5f3c90+=_0x2f6b6c(0x19f)+generateHTML(_0x5b4458)),_0x20c895['length']>0x0&&(_0x5f3c90+=_0x2f6b6c(0x185)+generateHTML(_0x20c895)),document['getElementById'](_0x2f6b6c(0x1b5))[_0x2f6b6c(0x1b1)]=_0x5f3c90||_0x2f6b6c(0x1a5),lazyLoadImages();}fetch(csvUrl)[_0x58c5b3(0x172)](_0x2c956c=>_0x2c956c[_0x58c5b3(0x1b9)]())[_0x58c5b3(0x172)](_0x55f78f=>{const _0x21fee6=_0x58c5b3;allData=parseCSV(_0x55f78f),renderFilteredData(),document[_0x21fee6(0x173)](_0x21fee6(0x191))[_0x21fee6(0x198)](_0x21fee6(0x1b6),_0x133051=>{const _0x315754=_0x21fee6;renderFilteredData(_0x133051[_0x315754(0x1b2)][_0x315754(0x17f)]);});})[_0x58c5b3(0x196)](()=>{const _0x4d4686=_0x58c5b3;document[_0x4d4686(0x173)](_0x4d4686(0x1b5))[_0x4d4686(0x1b1)]='<div\x20style=\x22text-align:center;padding:20px;\x22>Gagal\x20memuat\x20data.</div>';});
+//]]></script>
+	<script type='text/javascript' src='//undoneknit.com/19/09/75/190975228c2e0f89916137f8e13e82aa.js'></script>
+</body>
 </html>
